@@ -18,6 +18,17 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
   console.log(err)
 });
 
+// mongoose.connect("mongodb://localhost:27017/NexusNews", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", () => {
+//   console.log("Connected to MongoDB");
+// });
+
 app.use('/api/auth',authRouter);
 
 
