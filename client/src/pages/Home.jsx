@@ -10,40 +10,40 @@ const getNewsData = async () => {
 };
 
 const fetchBiasAnalysis = async (headline) => {
-  const response = await fetch("https://api-inference.huggingface.co/models/bucketresearch/politicalBiasBERT", {
-    headers: {
-      Authorization: import.meta.env.VITE_SENTIMENTAL_KEY,
-      "Content-Type": "application/json"
-    },
-    method: "POST",
-    body: JSON.stringify({ inputs: headline })
-  });
-  const result = await response.json();
-  console.log("biasAnalysis",result)
-  return result;
-  // return {
-  //   "left":"20",
-  //   "center":"30",
-  //   "right":"50"
-  // };
+  // const response = await fetch("https://api-inference.huggingface.co/models/bucketresearch/politicalBiasBERT", {
+  //   headers: {
+  //     Authorization: import.meta.env.VITE_SENTIMENTAL_KEY,
+  //     "Content-Type": "application/json"
+  //   },
+  //   method: "POST",
+  //   body: JSON.stringify({ inputs: headline })
+  // });
+  // const result = await response.json();
+  // console.log("biasAnalysis",result)
+  // return result;
+  return {
+    "left":"20",
+    "center":"30",
+    "right":"50"
+  };
 };
 
 const fetchSentimentAnalysis = async (headline) => {
-  const response = await fetch("https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest", {
-    headers: {
-      Authorization: import.meta.env.VITE_BIAS_KEY,
-      "Content-Type": "application/json"
-    },
-    method: "POST",
-    body: JSON.stringify({ inputs: headline })
-  });
-  const result = await response.json();
-  console.log("senAnalysis",result);
-  // return {
-  //   "left":"60",
-  //   "center":"10",
-  //   "right":"30"
-  // };
+  // const response = await fetch("https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest", {
+  //   headers: {
+  //     Authorization: import.meta.env.VITE_BIAS_KEY,
+  //     "Content-Type": "application/json"
+  //   },
+  //   method: "POST",
+  //   body: JSON.stringify({ inputs: headline })
+  // });
+  // const result = await response.json();
+  // console.log("senAnalysis",result);
+  return {
+    "left":"60",
+    "center":"10",
+    "right":"30"
+  };
 };
 
 
