@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const fetchWeatherDetails = async () => {
@@ -18,6 +19,7 @@ const fetchWeatherDetails = async () => {
  
 
 function Header() {
+  const {currentUser} = useSelector((state)=>state.user)
   const [weatherStatus, setWeatherStatus] = useState('');
   const [weatherImage, setWeatherImage] = useState('');
 
@@ -38,7 +40,18 @@ function Header() {
     <div className=' bg-slate-800 text-white'>
     <div className=' max-w-6xl mx-auto'>
     <div className='flex items-center justify-between p-3'>
-      <Link to='/user'><img className=' mx-1' src="../public/assets/MenuIcon.svg" alt="Menu" /></Link>
+      <Link to='/user'>
+       {currentUser ? (
+              <img
+                className='rounded-full h-7 w-7 object-cover'
+                src={currentUser.avatar}
+                alt='profile'
+              />
+            ) : (
+              // <li className=' text-slate-700 hover:underline'> Sign in</li>
+              <img className=' mx-1' src="../public/assets/MenuIcon.svg" alt="Menu" />
+            )}
+      </Link>
       <Link to='/'><h1 className='font-extrabold text-xl'>NexusNews</h1></Link>
       {weatherStatus && weatherImage && (
         <div className='flex items-center'>

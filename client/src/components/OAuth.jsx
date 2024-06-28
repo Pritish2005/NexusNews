@@ -1,9 +1,16 @@
 import React from 'react';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { app } from '../../firebase';
+// import { Link,useNavigate } from 'react-router-dom'
+// import { useDispatch } from 'react-redux'
+// import { signInStart,signInFailure,signInSuccess } from '../redux/user/userSlice'
+// import { useSelector } from 'react-redux'
+// import { Link,useNavigate } from 'react-router-dom'
 
 function OAuth() {
   const handleGoogleAuth = async () => {
+    
+    // const navigate = useNavigate();
     try {
       const provider = new GoogleAuthProvider();
       const auth = getAuth(app);
@@ -27,6 +34,7 @@ function OAuth() {
       }
 
       const data = await res.json();
+      // navigate('/');
       console.log(data);
       return data;
     } catch (error) {
