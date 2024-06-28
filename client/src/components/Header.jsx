@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Profile from '../pages/Profile';
+
 
 const fetchWeatherDetails = async () => {
   const res = await fetch(import.meta.env.VITE_WEATHERAPI_KEY);
@@ -38,7 +38,7 @@ function Header() {
     <div className=' bg-slate-800 text-white'>
     <div className=' max-w-6xl mx-auto'>
     <div className='flex items-center justify-between p-3'>
-      <Link to='/profile'><img className=' mx-1' src="../public/assets/MenuIcon.svg" alt="Menu" /></Link>
+      <Link to='/user'><img className=' mx-1' src="../public/assets/MenuIcon.svg" alt="Menu" /></Link>
       <Link to='/'><h1 className='font-extrabold text-xl'>NexusNews</h1></Link>
       {weatherStatus && weatherImage && (
         <div className='flex items-center'>

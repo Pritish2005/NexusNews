@@ -1,8 +1,8 @@
 import './App.css'
 import { Routes,Route,BrowserRouter } from 'react-router-dom'
-import OAuth from './components/OAuth'
 
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
+
+
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Signin from './pages/Signin'
