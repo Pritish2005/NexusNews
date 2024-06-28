@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
-import CategoryItem from '../components/CategoryItem';
 
 const getNewsData = async () => {
   const res = await fetch('/api/testresponse');
@@ -93,19 +92,18 @@ function Home() {
 
   return (
     <>
+
     <div className=' flex gap-2'>
       <select value={value} className='' onChange={handleChange}>
           <option value="All">All</option>
           <option value="Politics">Politics</option>
      </select>
-
     </div>
-      {finalData && finalData.map((item,key) => (
     <div className='max-w-5xl mx-auto flex flex-wrap justify-center'>
+      {finalData && finalData.map((item,key) => (
       <Card item={item} value={value} key={key}/>
+    ))}
     </div>
-
-      ))}
     </>
   );
 }
