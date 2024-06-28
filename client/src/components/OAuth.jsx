@@ -36,7 +36,9 @@ function OAuth() {
 
   return (
     <>
-      <button onClick={handleGoogleAuth} className='bg-red-600 text-white p-3 rounded-md'>
+      <button 
+      type ='button'
+      onClick={handleGoogleAuth} className='bg-red-600 text-white p-3 rounded-md hover:opacity-75'>
         Sign in with Google
       </button>
     </>
