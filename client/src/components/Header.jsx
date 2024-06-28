@@ -15,6 +15,7 @@ const fetchWeatherDetails = async () => {
     weatherText
   };
 };
+ 
 
 function Header() {
   const [weatherStatus, setWeatherStatus] = useState('');
