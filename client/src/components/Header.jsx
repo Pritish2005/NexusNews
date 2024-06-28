@@ -19,7 +19,7 @@ const fetchWeatherDetails = async () => {
  
 
 function Header() {
-  const {currentUser} = useSelector((state)=>state.user)
+  const {currentUser} = useSelector((state)=>state.user.user)
   const [weatherStatus, setWeatherStatus] = useState('');
   const [weatherImage, setWeatherImage] = useState('');
 
@@ -36,6 +36,7 @@ function Header() {
     getWeather();
   }, []);
 
+  
   return (
     <div className=' bg-slate-800 text-white'>
     <div className=' max-w-6xl mx-auto'>
@@ -52,7 +53,7 @@ function Header() {
               <img className=' mx-1' src="../public/assets/MenuIcon.svg" alt="Menu" />
             )}
       </Link>
-      <Link to='/'><h1 className='font-extrabold text-xl'>NexusNews</h1></Link>
+      <Link to='/'><h1 className='font-extrabold text-xl uppercase'>nexus news</h1></Link>
       {weatherStatus && weatherImage && (
         <div className='flex items-center'>
           <img className=' h-8 w-8' src={weatherImage} alt="Weather Icon" />

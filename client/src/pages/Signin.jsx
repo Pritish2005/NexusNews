@@ -222,7 +222,7 @@ import { useSelector } from 'react-redux'
 export default function Signin() {
     const [formData, setFormData] = useState({
 
-    })
+    });
  const navigate = useNavigate();
  const dispatch = useDispatch();
     const { loading, error } = useSelector((state) => state.user);
@@ -253,6 +253,7 @@ export default function Signin() {
             const data = await res.json();
             if (data.success === false) {
             dispatch(signInFailure(data.message));
+            console.log(data);
             return;
         }
         dispatch(signInSuccess(data));
@@ -262,6 +263,7 @@ export default function Signin() {
        }
 }
 console.log(formData);
+// console.log(ep);
 
     
   return (
@@ -293,7 +295,7 @@ console.log(formData);
             {loading? 'Logging IN...': 'Continue'}
           </button>
         </form>
-         {error && <p className='text-red-500 mt-5'>{error}</p>}
+         {error && <div style={{ color: 'red' }}>{error}</div>}
         <div className='flex gap-2 mt-5'>
         <p>Dont Have an account?</p>
         <Link to={'/sign-up'}>
