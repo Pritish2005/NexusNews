@@ -215,14 +215,17 @@
 import React, { useState } from 'react'
 import OAuth from '../components/OAuth'
 import { Link,useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { signInStart,signInFailure,signInSuccess } from '../redux/user/userSlice'
+import { useSelector } from 'react-redux'
 
 export default function Signin() {
     const [formData, setFormData] = useState({
 
     })
  const navigate = useNavigate();
-    const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+ const dispatch = useDispatch();
+    const { loading, error } = useSelector((state) => state.user);
     const changeHandler = (e)=>{
         setFormData(
             {
@@ -236,7 +239,7 @@ export default function Signin() {
        e.preventDefault();
        try {
         
-           setLoading(true);
+           dispatch(signInStart());
            const res = await fetch('/api/auth/signin',
             {
                 method: 'POST',
@@ -249,16 +252,13 @@ export default function Signin() {
            );
             const data = await res.json();
             if (data.success === false) {
-            setLoading(false);
-            setError(data.message);
+            dispatch(signInFailure(data.message));
             return;
         }
-        setLoading(false);
-        setError(null);
+        dispatch(signInSuccess(data));
         navigate('/');
        } catch (error) {
-        setLoading(false);
-        setError(error.message);
+         dispatch(signInFailure(error.message));
        }
 }
 console.log(formData);
@@ -267,8 +267,8 @@ console.log(formData);
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4">
       <div className="bg-white p-8 rounded-lg shadow-md text-center w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-4">Create an account</h2>
-        <p className="text-gray-600 mb-6">Enter your email to sign up for this app</p>
+        <h2 className="text-2xl font-semibold mb-4">Log Into Your account</h2>
+        <p className="text-gray-600 mb-6">Enter your credentials</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           
           <input
@@ -290,14 +290,14 @@ console.log(formData);
             disabled={loading}
             className="w-full bg-black text-white py-2 rounded-md hover:opacity-75 disabled:opacity-80"
           >
-            {loading? 'Creating User...': 'Sign up with email'}
+            {loading? 'Logging IN...': 'Continue'}
           </button>
         </form>
          {error && <p className='text-red-500 mt-5'>{error}</p>}
         <div className='flex gap-2 mt-5'>
-        <p>Have an account?</p>
-        <Link to={'/sign-in'}>
-          <span className='text-blue-700'>Sign in</span>
+        <p>Dont Have an account?</p>
+        <Link to={'/sign-up'}>
+          <span className='text-blue-700'>Sign up</span>
         </Link>
        </div>
         <div className="my-6 text-gray-600">or continue with</div>
