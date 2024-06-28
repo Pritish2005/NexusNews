@@ -23,8 +23,6 @@ function App() {
       <Route path='/user' element={<User/>}/>
       <Route path='/terms-of-service' element={<Terms/>}/>
       <Route path='/privacy-policy' element={<Policy/>}/>
-
-      
     </Routes>
     
     </BrowserRouter>
@@ -34,5 +32,4 @@ function App() {
 
 }
 
-export default App;
-
+export default App;
