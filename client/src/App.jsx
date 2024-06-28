@@ -6,7 +6,6 @@ import Header from './components/Header.jsx'
 import Profile from './pages/Profile'
 
 function App() {
-
   return (
     <>
     <BrowserRouter>
@@ -20,4 +19,5 @@ function App() {
   )
 }
 
-export default App
+export default App;
+

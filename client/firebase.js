@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_KEY,
+  apiKey: "AIzaSyBvCTs_u-InspwTjiZz5dV9h2_k0HwYIJ0",
   authDomain: "nexusnews-61e10.firebaseapp.com",
   projectId: "nexusnews-61e10",
   storageBucket: "nexusnews-61e10.appspot.com",
   messagingSenderId: "539545480022",
-  appId: "1:539545480022:web:9526727e59a64d299084f7"
+  appId: "1:539545480022:web:9526727e59a64d299084f7",
 };
 
 // Initialize Firebase
