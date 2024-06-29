@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 function OAuth() {
 
   const dispatch = useDispatch();
-    const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
   const handleGoogleAuth = async () => {
     
     try {

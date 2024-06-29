@@ -10,6 +10,7 @@ import User from './pages/User'
 import Terms from './pages/Terms'
 import Policy from './pages/Policy'
 import Header from './components/Header.jsx'
+import PrivateRoute from './components/PrivateRoute.jsx'
 
 
 function App() {
@@ -17,12 +18,14 @@ function App() {
     <BrowserRouter>
     <Header/>
     <Routes>
-      <Route path='/' element={<Home/>}/>
       <Route path='/sign-up' element={<Signup/>}/>
       <Route path='/sign-in' element={<Signin/>}/>
-      <Route path='/user' element={<User/>}/>
       <Route path='/terms-of-service' element={<Terms/>}/>
       <Route path='/privacy-policy' element={<Policy/>}/>
+      <Route element={<PrivateRoute/>}>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/user' element={<User/>}/>
+      </Route>
     </Routes>
     
     </BrowserRouter>
