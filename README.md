@@ -9,14 +9,9 @@ Tackle the challenge of discerning unbiased news in today's information-saturate
  1. **Bias Prediction:**
     Using machine learning algorithms to analyze and label the political bias of each article (left, right, neutral).
     Provide visual indicators of bias to help users quickly identify the slant of each news piece.
- 2. **Different Perspective Feature:**
-    Implement a "Different Perspective" feature that suggests articles from opposing viewpoints to provide a well-rounded understanding of topics.
-    Encourage users to explore diverse opinions and reduce echo chambers.
- 3. **User Benefits:**
+ 2. **User Benefits:**
    Access to accurate and unbiased news.Empowerment to trust the information they read.
    Fostering a well-rounded understanding of the news landscape.
- 4. **News Aggregation:**
-     Collect and display news articles from a variety of sources in one place. Categorize news by topics such as politics, sports, entertainment,technology, and more.
 
 ## 🚀 Getting Started
 <img src='.png' width='200'/>
